@@ -1,10 +1,13 @@
 import React from 'react'
+import ItemCount from "./ItemCount"
 
-const ItemListContainer = (greeting) => {
+const ItemListContainer = ({usuario}) => {
   
-
   return (
-    <h2>Bienvenido {greeting.nombre}</h2>
+    <div>
+    <h2>Bienvenido {usuario}</h2>
+    <ItemCount maximo={14}/>
+    </div>
   )
 }
 
