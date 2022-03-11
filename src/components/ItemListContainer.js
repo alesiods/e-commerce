@@ -59,7 +59,7 @@ const ItemListContainer = ({usuario}) => {
     <h2>Bienvenido {usuario}</h2>
     <>
       <ItemList data={productos}/>
-      <ItemCount maximo={14}/>
+      {/* <ItemCount maximo={14}/> */}
     </>
     </div>
   )

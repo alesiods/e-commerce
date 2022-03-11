@@ -7,7 +7,7 @@ const Item = ({product}) => {
       <img src={product.img} class="card-img-top" alt="telefonos"/>
         <div className="card-body">
         <h5 className="card-title">{product.nombre}</h5>
-        <p className="card-text">{product.precio}</p>
+        <p className="card-text">Precio: ${product.precio}</p>
         <a href="#" className="btn btn-warning">Ver mas</a>
         </div>
       </div>
