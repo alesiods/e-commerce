@@ -14,6 +14,10 @@ body {
     font-size: 20px;
 }
 
+span {
+    color: black;
+}
+
 
 /* Main */
 
@@ -31,11 +35,38 @@ h2 {
     text-align: center;
 }
 
+h4 {
+    text-align: center;
+}
+
 
 /* Card */
 
+.li_hover {
+    transition: all 0.3s ease;
+}
+
+.li_hover:hover {
+    transform: scale(1.1);
+}
+
 .vinietas_card {
     list-style-type: none;
+}
+
+
+/* Detalle */
+
+.detalle_orden {
+    display: flex;
+}
+
+.detalle_titulos {
+    margin-left: 70px;
+}
+
+.detalle_descripcion {
+    width: 300px;
 }
 
 

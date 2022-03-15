@@ -1,0 +1,26 @@
+[{
+        "id": 1,
+        "nombre": "Samsung A12",
+        " precio": 30000,
+        "img": "assets/A12.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Samsung A52",
+        " precio": 65000,
+        "img": "assets/A12.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Samsung S20",
+        " precio": 84000,
+        "img": "assets/A12.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Samsung M12",
+        " precio": 39000,
+        "img": "assets/A12.jpg"
+    }
+
+]

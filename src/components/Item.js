@@ -1,14 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 
 const Item = ({product}) => {
   return (
-    <li className='col-xl-4 col-6 vinietas_card'>
-      <div className="card mt-4">
+    <li className='col-xl-4 col-6 vinietas_card li_hover'>
+      <div className="card mt-5 mb-2">
       <img src={product.img} class="card-img-top" alt="telefonos"/>
         <div className="card-body">
         <h5 className="card-title">{product.nombre}</h5>
         <p className="card-text">Precio: ${product.precio}</p>
-        <a href="#" className="btn btn-warning">Ver mas</a>
+        <Link to={`/producto/${product.id}`} className="btn btn-warning">Ver detalle</Link>
         </div>
       </div>
     </li>

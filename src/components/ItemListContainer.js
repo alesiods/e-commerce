@@ -2,67 +2,60 @@ import React from 'react'
 import ItemCount from "./ItemCount"
 import ItemList from './ItemList'
 import {useState, useEffect} from "react"
+import { toast } from 'react-toastify'
+import { useParams } from 'react-router-dom'
+import productosIniciales from './productos'
 
-let productosIniciales = [
-  {
-      id: 1,
-      nombre: "Samsung A12",
-      precio: 30000,
-      img:"assets/A12.jpg"
-  },
-  {
-      id: 2,
-      nombre: "Samsung A52",
-      precio: 65000,
-      img:"assets/A12.jpg"   
-  },
-  {
-      id: 3,
-      nombre: "Samsung S20",
-      precio: 84000,
-      img:"assets/A12.jpg"     
-  },
-  {
-    id: 4,
-    nombre: "Samsung M12",
-    precio: 39000,
-    img:"assets/A12.jpg"     
-}
-  
-  ]
-
-const ItemListContainer = ({usuario}) => {
+const ItemListContainer = () => {
+  const [loading, setLoading] = useState (true)
   const [productos, setProductos] = useState ([])
 
-    useEffect (() => {
-      const pedido = new Promise ((res,rej)=>{
-        setTimeout(() => {
-            res(productosIniciales)
+  const {idCategoria} = useParams()
+
+  
+  
+  useEffect (() => {
+    toast.info("Trayendo la informacion...",{theme: "dark"}
+    )
+    const pedido = new Promise ((res,rej)=>{
+      setTimeout(() => {
+          console.log (idCategoria)
+            if (idCategoria == undefined) {
+              return res(productosIniciales)
+            }else if(idCategoria !=null){ 
+              const filtered = productosIniciales.filter(function(element){ 
+                return element.marca == idCategoria; 
+              });
+              return res(filtered)
+            }
         }, 2000);
       })
 
       pedido
       .then((resultado)=>{
+        toast.dismiss()
         setProductos(resultado)
-        console.log ("Carga exitosa")
       })
 
       .catch((error)=>{
-        console.error ("error al cargar la informacion")
+        toast.error ("Error al cargar la informacion")
+      })
+      .finally (()=>{
+        setLoading(false)
       })
 
-    }, [])
-
-  
-  return (
+    }, [idCategoria])
+    
+    if(loading){
+      return <h4>Cargando Articulos</h4>
+    } else{
+  return(
     <div>
-    <h2>Bienvenido {usuario}</h2>
     <>
       <ItemList data={productos}/>
       {/* <ItemCount maximo={14}/> */}
     </>
-    </div>
-  )
-}
+    </div>)
+}}
 
 export default ItemListContainer

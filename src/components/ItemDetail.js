@@ -2,20 +2,14 @@ import React from 'react'
 
 const ItemDetail = ({prod}) => {
   return (
-    <div className='container mt-5'>
-      <div className='row'>
-        <article className='col-xl-4 col-6 vinietas_card'>
-        <img src={prod.img} class="card-img-top" alt=""/>
-          <div className="card-body">
-            <h5 className="card-title">{prod.nombre}</h5>
-            <p className="card-text">{prod.precio}</p>
-            <div>
-              {prod.descripcion}
+    <article className="container detalle_orden mt-5 mb-5">
+            <img src={prod.img} alt="" />
+            <div className="detalle_titulos">
+                <h3>{prod.nombre}</h3>
+                <b>${prod.precio}</b>
+                <p className="detalle_descripcion">{prod.descripcion}</p>
             </div>
-          </div>
-        </article>
-      </div>
-    </div>
+    </article>
   )
 }
 
