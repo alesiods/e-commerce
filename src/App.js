@@ -1,4 +1,4 @@
-import NavBar from "./components/Navbar"
+import NavBar from "./components/Navbar/Navbar"
 import Footer from "./components/Footer"
 import Main from "./components/Main"
 import { ToastContainer} from "react-toastify";

@@ -20,6 +20,7 @@ let productosIniciales = [
           <li>Peso: 205gr</li>
           </ul>
       ],
+      stock: 5,
     },
     {
         id: 2,
@@ -41,7 +42,8 @@ let productosIniciales = [
           <li>Medidas: 164x75.8x8.9mm</li>
           <li>Peso: 205gr</li>
           </ul>
-      ],   
+      ],
+      stock: 2,   
       },
     {
         id: 3,
@@ -63,7 +65,8 @@ let productosIniciales = [
           <li>Medidas: 164x75.8x8.9mm</li>
           <li>Peso: 205gr</li>
           </ul>
-      ],     
+      ],
+      stock: 10,     
     },
   {
     id: 4,
@@ -85,7 +88,8 @@ let productosIniciales = [
       <li>Medidas: 164x75.8x8.9mm</li>
       <li>Peso: 205gr</li>
       </ul>
-  ],     
+  ],
+  stock: 8,     
   },
   {
     id: 5,
@@ -107,7 +111,8 @@ let productosIniciales = [
       <li>Medidas: 164x75.8x8.9mm</li>
       <li>Peso: 205gr</li>
       </ul>
-  ],       
+  ],
+  stock: 9,       
   },
   {
     id: 6,
@@ -129,7 +134,8 @@ let productosIniciales = [
       <li>Medidas: 164x75.8x8.9mm</li>
       <li>Peso: 205gr</li>
       </ul>
-  ],       
+  ],
+  stock: 2,       
   },
   ]
 
