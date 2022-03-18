@@ -1,6 +1,6 @@
 # Proyecto E-commerce
 
-![](/e-commerce/public/video_sitio.gif)
+![](public/video_sitio.gif)
 
 <br><br><br><br><br><br>
 
