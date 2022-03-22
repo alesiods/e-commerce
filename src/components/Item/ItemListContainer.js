@@ -44,16 +44,8 @@ const ItemListContainer = () => {
       })
 
     }, [idCategoria])
-    
-    if(loading){
-      return <h4>Cargando Articulos</h4>
-    } else{
-  return(
-    <div>
-    <>
-      <ItemList data={productos}/>
-    </>
-    </div>)
-}}
+    return (
+    loading ? (<h4>Cargando Articulos</h4>) : (<div> <> <ItemList data={productos}/> </> </div>)
+    )}
 
 export default ItemListContainer

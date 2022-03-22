@@ -10,7 +10,6 @@ import Contacto from './Contacto'
 const Main = () => {
   return (
     <main>
-      <h2 className='mt-4'>Productos Seleccionados</h2>
       <Routes>
         <Route path="/" element={<ItemListContainer/>}/>
         <Route path="/categoria/:idCategoria" element={<ItemListContainer/>}/>

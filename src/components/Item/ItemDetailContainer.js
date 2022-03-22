@@ -41,7 +41,14 @@ const ItemDetailContainer = () => {
 
     }, [idProducto])
 
-    if(loading){
+    return (
+      loading ? (<h4>Cargando Detalle</h4>) : (
+        <section> 
+        <ItemDetail prod={productos}/>   
+        </section>)
+    )
+
+    /* if(loading){
       return <h4>Cargando Detalle</h4>
     } else{
   return (
@@ -49,6 +56,6 @@ const ItemDetailContainer = () => {
     <ItemDetail prod={productos}/>   
     </section>
   )
-}}
+} */}
 
 export default ItemDetailContainer

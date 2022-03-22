@@ -5,6 +5,7 @@ import Navbar2 from '../Navbar/Navbar2'
 const ItemList = ({data}) => {
   return (
     <section>
+      <h2 className='mt-4'>Productos Seleccionados</h2>
     <Navbar2/>
     <div className='container'>
         <ul className='row'>

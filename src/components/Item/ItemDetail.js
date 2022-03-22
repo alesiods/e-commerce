@@ -1,17 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import ItemCount from '../Counter'
+import { contexto } from '../Contexto/CartContext'
+import Counter from '../Counter'
+
 
 const ItemDetail = ({prod}) => {
 
-  const [cantSeleccionada, setcantSeleccionada] = useState(0)
-  
+  const {addItem} = useContext(contexto)
 
-  const onAdd = (cantSeleccionada) => {
+
+  const [seleccionado, setSeleccionado] = useState(0)
+
+  const onAdd = (cant) => {
     
-      toast.success("Sus productos fueron enviados al carrito")
-      setcantSeleccionada (cantSeleccionada)
+      toast.success("Su compra fue enviada al carrito",{autoClose: 1000, theme: "dark"})
+      setSeleccionado (cant)
+      
+      addItem(prod, cant)
   }
 
 
@@ -23,14 +29,15 @@ const ItemDetail = ({prod}) => {
                 <h3>{prod.nombre}</h3>
                 <b>${prod.precio}</b>
                 <p className="detalle_descripcion">{prod.descripcion}</p>
-            </div>
-      </div>
-            {cantSeleccionada === 0 ? (<ItemCount stock={prod.stock} initial={1} onAdd={onAdd}/>): (
+
+            {seleccionado === 0 ? (<Counter stock={prod.stock} initial={1} onAdd={onAdd}/>): (
             <>
-            <Link to="/carrito" className='btn btn-warning'>Terminar Compra</Link>
-            <button onClick={()=>setcantSeleccionada(0)} className='btn btn-warning'>Reiniciar compra</button>
+            <Link to="/carrito" className='btn btn-warning m-3'>Ver mi compra</Link>
+            <Link to="/" className='btn btn-warning'>Comprar otro producto</Link>
             </>
             )}
+            </div>
+      </div>
     </article>
   )
 }
