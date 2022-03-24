@@ -1,6 +1,5 @@
 import React from 'react'
 import {useState} from "react"
-import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 
@@ -32,11 +31,11 @@ const Counter = ({stock, initial, onAdd}) => {
 
   return (
     <div>
-    <p>Cantidad: {estado}</p>
-    <button onClick={Sumar} type="button" class="btn btn-warning m-1">+</button>
-    <button onClick={Restar} type="button" class="btn btn-warning m-1">-</button>
-    <button onClick={Resetear} type="button" class="btn btn-warning m-1">Resetear</button>
-    <button onClick={Agregar} type="button" class="btn btn-warning m-1">Comprar</button>
+    <button onClick={Sumar} type="button" class="btn btn-warning m-2">+</button>
+    <span className='m-1'>Cantidad: {estado}</span>
+    <button onClick={Restar} type="button" class="btn btn-warning m-1">-</button> <br/>
+    <button onClick={Resetear} type="button" class="btn btn-warning m-1 mt-3">Resetear</button>
+    <button onClick={Agregar} type="button" class="btn btn-warning m-1 mt-3">Comprar</button>
     </div>
   )
 }

@@ -5,7 +5,7 @@ import { contexto } from '../Contexto/CartContext'
 
 const NavBar = () => {
 
-  const {calcCantidad} = useContext(contexto)
+  const {calcCantidad, carrito} = useContext(contexto)
 
   return (
     <header>
@@ -26,7 +26,7 @@ const NavBar = () => {
             </ul>
           </div>
           <Link to="/carrito"><CartWidget/></Link>
-          {calcCantidad()}   
+          { carrito == 0 ? <span></span> : calcCantidad()}
         </div>
       </nav>      
     </header>

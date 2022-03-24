@@ -82,3 +82,11 @@ footer {
 .noMostrar {
     display: none;
 }
+
+.negrita {
+    font-weight: bold;
+}
+
+.tamanioLetra {
+    font-size: 20px;
+}

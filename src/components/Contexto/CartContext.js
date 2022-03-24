@@ -9,7 +9,6 @@ const {Provider} = contexto
 const MiProvider = ({children}) => {
 
     const [carrito, setCarrito] = useState([])
-    const [cantidad, setCantidad] = useState(0)
     const [total, setTotal] = useState(0)
     
     const addItem = (producto, cantidad) =>{
@@ -51,16 +50,22 @@ const MiProvider = ({children}) => {
     const clear = () => {
             setCarrito([])
         }
+
+    
+    const calcTotal = () => {
+            let total = 0
+            carrito.forEach (item => total += item.cantidad * item.precio )
+            return total
+        }
         
 
     const valorContexto = {
         carrito,
-        cantidad,
-        total,
         addItem,
         calcCantidad,
         removeItem,
         clear,
+        calcTotal,
     }
 
     return(
