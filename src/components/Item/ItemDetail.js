@@ -24,7 +24,7 @@ const ItemDetail = ({prod}) => {
   return (
     <article> 
       <div className="container detalle_orden mt-5 mb-5">
-            <img src={prod.img} alt="" />
+            <img src={prod.img} alt="" className='img_detalle' />
             <div className="detalle_titulos">
                 <h3>{prod.nombre}</h3>
                 <b>${prod.precio}</b>

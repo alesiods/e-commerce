@@ -3,7 +3,8 @@ import ItemList from './ItemList'
 import {useState, useEffect} from "react"
 import { toast } from 'react-toastify'
 import { useParams } from 'react-router-dom'
-import productosIniciales from '../productos'
+import { coleccionProductos} from '../../firebase'
+import { getDocs, query, where } from 'firebase/firestore'
 
 const ItemListContainer = () => {
   const [loading, setLoading] = useState (true)
@@ -12,40 +13,31 @@ const ItemListContainer = () => {
   const {idCategoria} = useParams()
 
   
-  
   useEffect (() => {
-    toast.info("Trayendo la informacion...",{theme: "dark"}
-    )
-    const pedido = new Promise ((res,rej)=>{
-      setTimeout(() => {
-          console.log (idCategoria)
-            if (idCategoria == undefined) {
-              return res(productosIniciales)
-            }else if(idCategoria !=null){ 
-              const filtered = productosIniciales.filter(function(element){ 
-                return element.marca == idCategoria; 
-              });
-              return res(filtered)
-            }
-        }, 2000);
-      })
+    
+    if(!idCategoria){
+
+      const consulta = getDocs(coleccionProductos)
+
+      consulta
+          .then(resultado => setProductos(resultado.docs.map(doc => doc.data())))
+          .catch(() => toast.error("Error al cargar la informacion"))
+          .finally(() => setLoading(false))
+
+  }else{
+
+      const filtroProductos = query(coleccionProductos,where("marca","==",idCategoria))
+      const pedido = getDocs(filtroProductos)
 
       pedido
-      .then((resultado)=>{
-        toast.dismiss()
-        setProductos(resultado)
-      })
+          .then(resultado => setProductos(resultado.docs.map(doc => doc.data())))
+          .catch(() => toast.error("Error al cargar la informacion"))
+          .finally(() => setLoading(false))
 
-      .catch((error)=>{
-        toast.error ("Error al cargar la informacion")
-      })
-      .finally (()=>{
-        setLoading(false)
-      })
-
-    }, [idCategoria])
+  }
+  }, [idCategoria])
     return (
     loading ? (<h4>Cargando Articulos</h4>) : (<div> <> <ItemList data={productos}/> </> </div>)
-    )}
+    ) }
 
 export default ItemListContainer

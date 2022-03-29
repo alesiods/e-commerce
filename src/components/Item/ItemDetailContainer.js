@@ -3,7 +3,9 @@ import ItemDetail from './ItemDetail'
 import {useState, useEffect} from "react"
 import { toast } from 'react-toastify'
 import { useParams } from 'react-router-dom'
-import productosIniciales from '../productos'
+import { coleccionProductos} from '../../firebase'
+import { getDocs, query, where } from 'firebase/firestore'
+
 
 
 const ItemDetailContainer = () => {
@@ -13,7 +15,19 @@ const ItemDetailContainer = () => {
   const {idProducto} = useParams()
 
     useEffect (() => {
-      toast.info("Trayendo la informacion...",{theme: "dark"}
+
+    
+
+      const filtroProductos = query(coleccionProductos,where("id","==",Number(idProducto)))
+      const pedido = getDocs(filtroProductos)
+
+      pedido
+          .then(resultado => setProductos(resultado.docs[0].data()))
+          .catch(() => toast.error("Error al cargar la informacion"))
+          .finally(() => setLoading(false))
+
+
+      /* toast.info("Trayendo la informacion...",{theme: "dark"}
     )
       const pedido = new Promise ((res,rej)=>{
         setTimeout(() => {
@@ -38,7 +52,7 @@ const ItemDetailContainer = () => {
       .finally (()=>{
         setLoading(false)
       })
-
+ */
     }, [idProducto])
 
     return (

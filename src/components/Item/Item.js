@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Item = ({product}) => {
   return (
-    <li className='col-xl-4 col-6 vinietas_card li_hover'>
+    <li className='col-xl-3 col-6 vinietas_card li_hover'>
       <div className="card mt-5 mb-2">
       <img src={product.img} class="card-img-top" alt="telefonos"/>
         <div className="card-body">
