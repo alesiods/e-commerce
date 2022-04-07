@@ -31,11 +31,11 @@ const Counter = ({stock, initial, onAdd}) => {
 
   return (
     <div>
-    <button onClick={Sumar} type="button" class="btn btn-warning m-2">+</button>
+    <button onClick={Sumar} type="button" class="btn btn-success m-2">+</button>
     <span className='m-1'>Cantidad: {estado}</span>
-    <button onClick={Restar} type="button" class="btn btn-warning m-1">-</button> <br/>
-    <button onClick={Resetear} type="button" class="btn btn-warning m-1 mt-3">Resetear</button>
-    <button onClick={Agregar} type="button" class="btn btn-warning m-1 mt-3">Comprar</button>
+    <button onClick={Restar} type="button" class="btn btn-success m-1">-</button> <br/>
+    <button onClick={Resetear} type="button" class="btn btn-success m-1 mt-3">Resetear</button>
+    <button onClick={Agregar} type="button" class="btn btn-success m-1 mt-3">Agregar al carrito</button>
     </div>
   )
 }

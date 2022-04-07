@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-body {
-    background-color: #b5ead7;
-}
-
 
 /*Navbar*/
 
@@ -16,6 +12,10 @@ body {
 
 span {
     color: black;
+}
+
+.margen_izquierdo {
+    margin-left: 40px !important;
 }
 
 
@@ -81,6 +81,13 @@ footer {
 }
 
 
+/* Nosotros */
+
+.tamanioLetra_nosotros {
+    font-size: 45px;
+}
+
+
 /* generales */
 
 .noMostrar {
@@ -91,6 +98,41 @@ footer {
     font-weight: bold;
 }
 
-.tamanioLetra {
-    font-size: 20px;
+.borde {
+    border: 2px solid #198754;
+}
+
+.m_derecha {
+    margin-right: 15px
+}
+
+
+/* RESPONSIVE*/
+
+@media (max-width: 768px) {
+    /*Navbar*/
+    .margen_izquierdo {
+        margin-left: 0 !important;
+    }
+    /* Detalle */
+    .detalle_orden {
+        flex-direction: column;
+    }
+    .detalle_titulos {
+        margin-left: 0;
+    }
+    .detalle_descripcion {
+        width: 100%;
+    }
+    .img_detalle {
+        width: 100%;
+    }
+    /* Nosotros */
+    .tamanioLetra_nosotros {
+        font-size: 30px;
+    }
+    /* Contacto */
+    .tamanio_mapa {
+        width: 100%;
+    }
 }

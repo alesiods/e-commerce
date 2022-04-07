@@ -32,8 +32,8 @@ const ItemDetail = ({prod}) => {
 
             {seleccionado === 0 ? (<Counter stock={prod.stock} initial={1} onAdd={onAdd}/>): (
             <>
-            <Link to="/carrito" className='btn btn-warning m-3'>Ver mi compra</Link>
-            <Link to="/" className='btn btn-warning'>Comprar otro producto</Link>
+            <Link to="/carrito" className='btn btn-success mt-3 m_derecha'>Ver mi carrito</Link>
+            <Link to="/" className='btn btn-success mt-3'>Agregar otro producto</Link>
             </>
             )}
             </div>

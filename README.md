@@ -1,81 +1,41 @@
-# Proyecto E-commerce
+# TIENDA CELL
 
-![](public/video_sitio.gif)
+## Descripcion:
+Tienda virtual - E-Commerce de celulares. Realizada para presentacion de proyecto final de cursos de React JS.
 
-<br><br><br><br><br><br>
+## ¿Que se puede hacer?
+En la misma se puede seleccionar productos, buscar productos por categorias, ver detalles de los mismos, agregar al carrito y finalmente concretar mediante un formulario la compra.
+La App esta viculado a Firebase para la base de datos (Podemos a traves del firestore encontrar la coleccion de productos y las ordenes de compra)
 
+## Muestra:
+![](public/sitio.gif)
 
+## Dominio del sitio:
+[link del sitio]()
 
+## Herramientas/Dependecias utilizadas:
+* React 17.0.2
+* React-Router-DOM 6.2.2
+* Bootstrap 5.1.3
+* Firebase 9.6.10
+* Toastify 8.2.0
+* Material Icons
 
+## Partes de la APP:
+* App.js:  En el se encuentran todas las rutas de la aplicacion, se encarga de linkear segun corresponda
+* Navbar: En esta carpeta encontramos el archivos Navbar.js donde se encuentra la barra de navegacion principal (encontramos el CartWidget) y Navbar2.js donde se encuentra la barra en donde se hace el filtrado de productos por categorias
+* Item: En esta carpeta encontramos los componentes ItemListContainer.js ( encargado de la parte funcional-componente contenedor), ItemList.js e Item.js (encargador la presentacion de los productos), ItemDetailContainer.js (encargado de la parte funcional del detalle-contenedor), ItemDetail.js (encargado de la presentacion de los detalles de los productos)
+* Counter.js: Componente encargado de sumar o restar productos que van al carrito
+* Carrito.js:  Componente donde van a parar los productos seleccionados para la futura compra. Se detalla precio total y cantidad de productos seleccionados, tambien se encuentra el formulario donde se ingresan los datos del comprador para enviar a la base de datos.
+* Contexto: Componente utilizado para pasar datos a través del árbol de componentes sin tener que pasar props manualmente en cada nivel.
 
+## Pasos para instalar el sitio:
+1. git clone https://github.com/alesiods/e-commerce
+2. cd e-commerce
+3. npm install
+4. npm start
 
-# Getting Started with Create React App
+## Sobre mi:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Para conocer mis proyectos ingresar a:
+https://alesioportfolio.netlify.app/

@@ -4,24 +4,27 @@ import { contexto } from './Contexto/CartContext'
 import { serverTimestamp, addDoc } from 'firebase/firestore'
 import { coleccionOrdenes } from '../firebase'
 import { toast } from 'react-toastify'
-import Form from './Form'
+
 
 
 
 const Carrito = () => {
 
   const {carrito,removeItem, clear, calcTotal} = useContext(contexto)
-  console.log(carrito)
 
+  const [form, setForm] = useState({ nombre: '', apellido: '', telefono: '', email: '' })
+    
+
+  const handleChange = (e) => {
+    setForm({
+        ...form,
+        [e.target.name]: e.target.value
+    })
+  }
 
   const finalizarCompra = () => {
     const orden = {
-        buyer: {
-          nombre: "arturo",
-          apellido: "grottoli",
-          telefono: "123456789",
-          email: "r2d2@gmail.com"
-        },
+        buyer: {...form},
         items: carrito,
         date: serverTimestamp(),
         total: calcTotal(),
@@ -36,6 +39,10 @@ const Carrito = () => {
     .catch(()=>{
       toast.error("Error al realizar la compra")
     })
+    .finally(()=>{
+
+    clear()
+    })
   }
 
   
@@ -45,11 +52,12 @@ const Carrito = () => {
       {carrito != 0 ? (<>
                           <div className='row m-5'>
                             
-                            <div className='col-6'>
+                            <div className='col-xl-6 col-l-2'>
                               <div className="row">
                                 {carrito.map(producto =>(
                                 <div className="col-xl-4 col-6">
                                   <div className="card mt-2 text-center">
+                                    <img src={producto.img} alt="" />
                                   <div key={producto.id}>
                                     <p className="negrita">{producto.nombre}</p>
                                     <p>{producto.cantidad} x ${producto.precio}</p>
@@ -61,9 +69,50 @@ const Carrito = () => {
                               </div>
                             </div>
                         
-                            <div className='col-6'>
+                            <div className='col-xl-6 col-l-2'>
                               <h3 className='text-center'>Datos Personales:</h3>
-                              <Form/>
+                              <form>
+                                    <div className='row'>
+                                    <div className='col-6'>
+                                        <input 
+                                        value={form.nombre}
+                                        name='nombre' 
+                                        type="text" 
+                                        placeholder='Nombre' 
+                                        className="form-control m-3"
+                                        onChange={handleChange}/> 
+                                    </div>
+                                    <div className='col-6'>
+                                        <input 
+                                        value={form.apellido} 
+                                        name='apellido' 
+                                        type="text" 
+                                        placeholder='Apellido' 
+                                        className="form-control m-3" 
+                                        onChange={handleChange}/>
+                                    </div>
+                                    </div>
+                                    <div className='row'>
+                                    <div className='col-6'>
+                                        <input 
+                                        value={form.telefono}
+                                        name='telefono' 
+                                        type="text" 
+                                        placeholder='Telefono' 
+                                        className="form-control m-3" 
+                                        onChange={handleChange}/>
+                                    </div>
+                                    <div className='col-6'>
+                                        <input 
+                                        value={form.email}
+                                        name='email' 
+                                        type="email" 
+                                        placeholder='Email' 
+                                        className="form-control m-3" 
+                                        onChange={handleChange}/> 
+                                    </div>
+                                    </div>
+                              </form>
                               <div className='text-center'>
                               <p className="negrita tamanioLetra">Total Compra: ${calcTotal()}</p>
                               <button onClick={clear} className="btn btn-danger">Vaciar carrito</button> 
@@ -77,7 +126,7 @@ const Carrito = () => {
                       </>) : 
       (<div className=' text-center'>
           <h2 className='mt-5'>No hay productos en tu carrito!!</h2>
-          <Link to="/" className="btn btn-warning mt-5">Comprar un producto</Link>
+          <Link to="/" className="btn btn-success mt-5">Comprar un producto</Link>
       </div>)}
     </div>
   )
